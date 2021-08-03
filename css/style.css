@@ -59,6 +59,22 @@
 html{
     scroll-behavior: smooth;
 }
+body.dark-theme{
+    --title-color: #f1f3f2;
+    --text-color: #c7d1cc;
+    --body-color: #1d2521;
+    --container-color: #27302c;
+
+}
+.change-theme{
+    position: absolute;
+    right: 1rem;
+    top: 1.8rem;
+    color: var(--title-color);
+    font-size: 1rem;
+    cursor: pointer;   
+
+}
 
 body{
     margin: var(--header-height) 0 0 0;
@@ -167,6 +183,10 @@ img{
     font-size: 1.3rem;
     cursor: pointer;
 }
+.change-theme{
+    position: initial;
+    margin-left: var(--mb-2) ;
+}
 .show-menu{
     top: var(--header-height);
 }
@@ -207,8 +227,13 @@ img{
 }
 
 .home__container{
-    height: calc(100vh - --header-height);
+    height: calc(100vh - var(--header-height));
     align-content: center;
+    margin-top: 5rem;
+    justify-content: center;
+}
+.home__data{
+    text-align: center;
 }
 .home__title{
     font-size: var(--biggest-font-size);
@@ -237,6 +262,9 @@ img{
 .button:hover{
     background-color: var(--first-color-alt);
 }
+.about__container{
+    justify-content: center;
+}
 .about__data{
     text-align: center;
 }
@@ -246,31 +274,34 @@ img{
 .about__img{
     width: 280px;
     border-radius: .5rem;
-    justify-content: center;
-    margin-top: var(--mb-2);
+    align-items: center;
+    
 }
-.sevices__container{
+.services__container{
     row-gap: 2.5rem;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-.services__content{
+  }
+  
+  .services__content{
     text-align: center;
-}
-.services__img{
+  }
+  
+  .services__img{
     width: 64px;
     height: 64px;
     fill: var(--first-color);
     margin-bottom: var(--mb-2);
-}
-.services__title{
+  }
+  
+  .services__title{
     font-size: var(--h3-font-size);
     color: var(--title-color);
     margin-bottom: var(--mb-1);
-}
-
-.services__description{
+  }
+  
+  .services__description{
     padding: 0 1.5rem;
-}
+  }
 
 .menu__container{
     grid-template-columns: repeat(2, 1fr);
@@ -374,4 +405,141 @@ img{
 .footer__copy{
     text-align: center;
     font-size: var(--small-font-size);
+}
+.footer__copy{
+    text-align: center;
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+    margin: 3.5rem;
+}
+
+@media screen and (min-width: 576px){
+    .home__container,
+  .about__container,
+  .app__container{
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+  }
+
+  .about__data, .about__initial,
+  .app__data, .app__initial,
+  .contact__container, .contact__initial{
+    text-align: initial;
+  }
+
+    .about__img, .app__img{
+        width: 380px;
+        order: -1;
+    }
+    .contact__container{
+        grid-template-columns: 1.75fr 1fr;
+        align-items: center;
+    }
+    .contact__button{
+        justify-self: center;
+
+    }
+}
+
+@media screen and (min-width: 500px){
+    .home__container,
+    .about__container,
+    .app__container{
+      grid-template-columns: repeat(2,1fr);
+      align-items: center;
+    }
+  
+    .about__data, .about__initial,
+    .app__data, .app__initial,
+    .contact__container, .contact__initial{
+      text-align: initial;
+    }
+  
+    .about__img, .app__img{
+      width: 380px;
+      order: -1;
+    }
+  
+    .contact__container{
+      grid-template-columns: 1.75fr 1fr;
+      align-items: center;
+    }
+    .contact__button{
+      justify-self: center;
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    body{
+      margin: 0;
+    }
+  
+    .section{
+      padding-top: 8rem;
+    }
+  
+    .nav{
+      height: calc(var(--header-height) + 1.5rem);
+    }
+    .nav__list{
+      display: flex;
+    }
+    .nav__item{
+      margin-left: var(--mb-5);
+      margin-bottom: 0;
+    }
+    .nav__toggle{
+      display: none;
+    }
+  
+    .change-theme{
+      position: initial;
+      margin-left: var(--mb-2);
+    }
+  
+    .home__container{
+      height: 100vh;
+      justify-items: center;
+    }
+  
+    .services__container,
+    .menu__container{
+      margin-top: var(--mb-6);
+    }
+  
+    .menu__container{
+      grid-template-columns: repeat(3, 210px);
+      column-gap: 4rem;
+    }
+    .menu__content{
+      padding: 1.5rem;
+    }
+    .menu__img{
+      width: 130px;
+    }
+  
+    .app__store{
+      margin: 0 var(--mb-1) 0 0;
+    }
+  }
+  @media screen and (min-width: 960px){
+    .bd-container{
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .home__img{
+      width: 500px;
+    }
+  
+    .about__container,
+    .app__container{
+      column-gap: 7rem;
+    }
+  }
+  @media screen and (min-height: 721px) {
+    .home__container {
+        height: 640px;
+    }
 }
